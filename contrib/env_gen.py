@@ -24,4 +24,4 @@ ALLOWED_HOSTS=127.0.0.1, .localhost
 
 # Writing our configuration file to '.env'
 with open('.env', 'w') as configfile:
-configfile.write(CONFIG_STRING)
+    configfile.write(CONFIG_STRING)
