@@ -2,7 +2,6 @@ from django.contrib.auth.models import User
 from django.db import models
 from projeto.core.models import TimeStampedModel
 from projeto.produto.models import Produto
-from .managers import EstoqueEntradaManager, EstoqueSaidaManager
 
 
 MOVIMENTO = (
@@ -19,14 +18,10 @@ class Estoque(TimeStampedModel):
         ordering = ('-created',)
 
 class EstoqueItens(models.Model):
-    estoque = models.ForeignKey(
-        Estoque,
-        on_delete=models.CASCADE,
-        related_name='estoques'
-    )
+    estoque = models.ForeignKey(Estoque, on_delete=models.CASCADE)
     produto = models.ForeignKey(Produto, on_delete=models.CASCADE)
     quantidade = models.PositiveIntegerField()
-    saldo = models.PositiveIntegerField(blank=True)
+    saldo = models.PositiveIntegerField()
 
     class Meta:
         ordering = ('pk',)
