@@ -11,8 +11,8 @@ from projeto.produto.models import Produto
 
 
 class Utils:
-    ''' Métodos genéricos. '''
-    @staticmethod
+
+   @staticmethod
     def gen_digits(max_length):
         return str(''.join(choice(string.digits) for i in range(max_length)))
 
